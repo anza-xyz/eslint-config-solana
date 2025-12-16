@@ -34,7 +34,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           cache: "pnpm"
-          node-version: ${{ inputs.version }}
+          node-version: current
           registry-url: "https://registry.npmjs.org"
 
       - name: Install dependencies
