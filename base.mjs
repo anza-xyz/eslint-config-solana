@@ -1,27 +1,33 @@
 import eslint from "@eslint/js";
 import simpleImportSortPlugin from "eslint-plugin-simple-import-sort";
 import typescriptSortKeysPlugin from "eslint-plugin-typescript-sort-keys";
+import { defineConfig, globalIgnores } from "eslint/config";
 import globals from "globals";
 import tseslint from "typescript-eslint";
 
-export default tseslint.config(
-  eslint.configs.recommended,
-  ...tseslint.configs.recommendedTypeChecked,
-  {
-    files: ["**/*.ts"],
-    ignores: ["dist/**", "lib/**", "**/*.json"],
+function addTypeScriptLanguageOptions(config) {
+  return {
+    ...config,
     languageOptions: {
+      ...config.languageOptions,
       globals: {
+        ...config.languageOptions?.globals,
         ...globals.es2020,
         ...globals["shared-node-browser"],
       },
       parserOptions: {
-        project: "./tsconfig.json",
         projectService: true,
-        tsconfigRootDir: import.meta.dirname,
       },
       sourceType: "module",
     },
+  };
+}
+export default defineConfig(
+  globalIgnores(["**/dist/", "**/lib/", "**/*.json"]),
+  eslint.configs.recommended,
+  tseslint.configs.recommendedTypeChecked.map(addTypeScriptLanguageOptions),
+  addTypeScriptLanguageOptions({
+    files: ["**/*.ts"],
     plugins: {
       "simple-import-sort": simpleImportSortPlugin,
       "typescript-sort-keys": typescriptSortKeysPlugin,
@@ -37,5 +43,5 @@ export default tseslint.config(
       "sort-keys-fix/sort-keys-fix": "error",
       "typescript-sort-keys/interface": "error",
     },
-  }
+  })
 );
