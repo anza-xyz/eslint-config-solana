@@ -1,6 +1,6 @@
 {
   "name": "@solana/eslint-config-solana",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "description": "ESLint rules to be shared across all Solana Labs projects",
   "main": "index.mjs",
   "type": "module",
