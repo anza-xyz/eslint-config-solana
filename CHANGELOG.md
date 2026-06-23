@@ -1,5 +1,11 @@
 # @solana/eslint-config-solana
 
+## 6.0.1
+
+### Patch Changes
+
+- [#6](https://github.com/anza-xyz/eslint-config-solana/pull/6) [`c0813fa`](https://github.com/anza-xyz/eslint-config-solana/commit/c0813fa2309b7c0cbfd5097e60e0bed6c1075645) Thanks [@lorisleiva](https://github.com/lorisleiva)! - Deprecate this package in favor of `@solana-config/eslint` from the `@solana-foundation/js-configs` monorepo. Added a deprecation notice to the README.
+
 ## 6.0.0
 
 ### Major Changes
