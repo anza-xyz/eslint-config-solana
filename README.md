@@ -1,5 +1,11 @@
 # Solana ESLint config
 
+> [!WARNING]
+> **This package is deprecated.** It has been replaced by
+> [`@solana-config/eslint`](https://github.com/solana-foundation/js-configs),
+> part of the [`@solana-foundation/js-configs`](https://github.com/solana-foundation/js-configs)
+> monorepo. Please migrate to the new package; this one will no longer receive updates.
+
 Let's share this ESLint config across all of our projects, to keep things consistent.
 
 ## Installation
